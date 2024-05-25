@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+  pihole:
+    container_name: pihole
+    image: pihole/pihole:latest
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "8080:80/tcp"
+    environment:
+      TZ: 'Europe/Berlin'
+      WEBPASSWORD: 'pihole'
+    volumes:
+      - './etc-pihole:/etc/pihole'
+      - './etc-dnsmasq.d:/etc/dnsmasq.d'
+    cap_add:
+      - NET_ADMIN
+    networks:
+      - docker_network
+    restart: unless-stopped
+
+networks:
+  docker_network:
+    external: true

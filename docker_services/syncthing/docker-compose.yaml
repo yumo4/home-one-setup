@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  syncthing:
+    container_name: syncthing
+    image: syncthing/syncthing
+    hostname: home-one
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - /wherever/st-sync:/var/syncthing
+    ports:
+      - 8384:8384 # Web UI
+      - 22000:22000/tcp # TCP file transfers
+      - 22000:22000/udp # QUIC file transfers
+      - 21027:21027/udp # Receive local discovery broadcasts
+    networks:
+      - docker_network
+    restart: unless-stopped
+
+networks:
+  docker_network:
+    external: true

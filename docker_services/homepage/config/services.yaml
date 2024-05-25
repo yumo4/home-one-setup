@@ -1,0 +1,18 @@
+- Infrastructure:
+    - Portainer:
+        icon: portainer.svg
+        href: https://192.168.178.65:9443
+    - PiHole:
+        icon: pi-hole.svg
+        href: http://192.168.178.65:8080/admin
+    - FritzBox:
+        icon: avmfritzbox.svg
+        href: fritz.box
+    - Nginx-Proxy-Manager:
+        icon: nginx-proxy-manager.svg
+        href: http://192.168.178.65:81
+
+- Services:
+    - Syncthing:
+        icon: syncthing.svg
+        href: http://192.168.178.65:8384
