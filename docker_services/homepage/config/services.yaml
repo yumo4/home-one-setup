@@ -1,18 +1,22 @@
 - Infrastructure:
     - Portainer:
         icon: portainer.svg
-        href: https://192.168.178.65:9443
+        href: https://portainer.yumo4.duckdns.org
     - PiHole:
         icon: pi-hole.svg
-        href: http://192.168.178.65:8080/admin
+        href: https://pihole.yumo4.duckdns.org
     - FritzBox:
         icon: avmfritzbox.svg
         href: fritz.box
     - Nginx-Proxy-Manager:
         icon: nginx-proxy-manager.svg
-        href: http://192.168.178.65:81
+        href: https://proxy.yumo4.duckdns.org
 
 - Services:
     - Syncthing:
         icon: syncthing.svg
-        href: http://192.168.178.65:8384
+        href: https://syncthing.yumo4.duckdns.org
+    - Vaultwarden:
+        icon: bitwarden.svg
+        href: https://vaultwarden.yumo4.duckdns.org
+

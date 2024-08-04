@@ -1,1 +1,33 @@
-idfk how to do this with docker compose
+version: '3'
+
+services:
+  vaultwarden:
+    container_name: vaultwarden
+    image: vaultwarden/server:latest
+    volumes:
+      - ./vw-data/:/data/
+    ports:
+      - 9090:80
+    environment:
+     - ADMIN_TOKEN=${ADMIN_TOKEN}
+     - WEBSOCKET_ENABLED=${WEBSOCKET_ENABLED}
+     - SIGNUPS_ALLOWED=${SIGNUPS_ALLOWED}
+     - DOMAIN=${DOMAIN}
+     - INVITATIONS_ALLOWED=true
+     - INVITATION_ORG_NAME=${INVITATION_ORG_NAME}
+     - WEB_VAULT_ENABLED=${WEB_VAULT_ENABLED}
+     # Email Server Setup -> Gmail
+     - SMTP_HOST=${SMTP_HOST}
+     - SMTP_FROM=${SMTP_FROM}
+     - SMTP_FROM_NAME=${SMTP_FROM_NAME}
+     - SMTP_PORT=${SMTP_PORT}
+     - SMTP_SECURITY=${SMTP_SECURITY}
+     - SMTP_USERNAME=${SMTP_USERNAME}
+     - SMTP_PASSWORD=${SMTP_PASSWORD}
+    networks:
+      - docker_network
+    restart: unless-stopped
+
+networks:
+  docker_network:
+    external: true
